@@ -9,6 +9,8 @@ import { ROUTING } from "./app.routing";
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
+import { LoginComponent } from './login/login.component';
+
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
         AppComponent,
         AboutComponent,
         HomeComponent,
-        MovimentacaoComponent
+        MovimentacaoComponent,
+        LoginComponent
     ],
     imports: [
         BrowserAnimationsModule,
@@ -24,7 +27,7 @@ import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
         FormsModule,
         HttpModule,
         ClarityModule,
-        ROUTING
+        ROUTING,
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -1,21 +1,34 @@
-<!--
-  ~ Copyright (c) 2016 VMware, Inc. All Rights Reserved.
-  ~ This software is released under MIT license.
-  ~ The full license information can be found in LICENSE in the root directory of this project.
-  -->
-  
-<p>This is a Clarity seed application. This is the default page that loads for the application.</p>
-
-<clr-dropdown>
-    <button clrDropdownTrigger class="btn">
-        Dropdown
-        <clr-icon shape="caret down"></clr-icon>
-    </button>
-    <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-        <a clrDropdownItem href="javascript://">Action 1</a>
-        <a clrDropdownItem href="javascript://">Action 2</a>
-        <div class="dropdown-divider"></div>
-        <a clrDropdownItem href="javascript://">Link 1</a>
-        <a clrDropdownItem href="javascript://">Link 2</a>
-    </clr-dropdown-menu>
-</clr-dropdown>
+<clr-main-container>
+    <clr-header class="header header-5">
+        <div class="branding">
+            <a href="..." class="nav-link">
+                <clr-icon shape="vm-bug"></clr-icon>
+                <span class="title">Cash Home</span>
+            </a>
+        </div>
+        <div class="header-nav" [clr-nav-level]="1">
+            <a class="nav-link" href="#" [routerLink]="['/home']" routerLinkActive="active"><span class="nav-text">Movimentações</span></a>
+            <a class="nav-link" href="#" [routerLink]="['/about']" routerLinkActive="active"><span class="nav-text">Gráficos </span></a>
+            <a class="nav-link" href="#" [routerLink]="['/relat']" routerLinkActive="active"><span class="nav-text">Relatórios </span></a>
+        </div>
+      <div class="header-actions">
+      </div>
+      <div class="header-actions">
+          <clr-dropdown>
+              <button class="nav-text" clrDropdownTrigger>
+                  rodrigo.ribeiro@mv.com
+                  <clr-icon shape="caret down"></clr-icon>
+              </button>
+              <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                  <a href="..." clrDropdownItem>Preferences</a>
+                  <a href="..." clrDropdownItem>Log out</a>
+              </clr-dropdown-menu>
+          </clr-dropdown>
+      </div>
+    </clr-header>
+    <div class="content-container">
+      <div class="content-area">
+        <app-movimentacao></app-movimentacao>
+      </div>
+    </div>
+  </clr-main-container>
