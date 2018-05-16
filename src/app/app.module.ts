@@ -10,7 +10,9 @@ import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
 import { LoginComponent } from './login/login.component';
-
+import { ChartComponent } from './chart/chart.component';
+import { ChartsModule } from 'ng2-charts';
+import { Chart2Component } from './chart2/chart2.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { LoginComponent } from './login/login.component';
         AboutComponent,
         HomeComponent,
         MovimentacaoComponent,
-        LoginComponent
+        LoginComponent,
+        ChartComponent,
+        Chart2Component
     ],
     imports: [
         BrowserAnimationsModule,
@@ -27,7 +31,9 @@ import { LoginComponent } from './login/login.component';
         FormsModule,
         HttpModule,
         ClarityModule,
+        ChartsModule,
         ROUTING,
+        
     ],
     providers: [],
     bootstrap: [AppComponent]
