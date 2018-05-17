@@ -11,9 +11,15 @@ export class MovimentacaoComponent implements OnInit {
 
   movimentacoes:Movimentacao[] = MOVIMENTACOES;
 
+  cadastrarBool : String ;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  cadastrar(){
+    this.cadastrarBool = 'v';
   }
 
 }

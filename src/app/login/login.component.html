@@ -1,26 +1,35 @@
 <div class="login-wrapper">
-  <form class="login">
+  <form class="login" >
       <label class="title">
           <h3 class="welcome">Bem vindo ao Cash Home</h3>
           <h5 class="hint">Use o seu ID ou crie um agora</h5>
       </label>
       <div class="login-group">
-          <div class="auth-source select">
+          <!-- <div class="auth-source select">
               <select id="login-auth-source-1">
                   <option>Usuário Local</option>
                   <option>Admnistrador</option>
               </select>
-          </div>
-          <input class="username" type="text" id="login_username" placeholder="Usuário">
-          <input class="password" type="password" id="login_password" placeholder="Senha">
+          </div> -->
+         
+            <input class="username" [(ngModel)]="login" name="login" type="text" id="login_username" placeholder="Usuário">
+          
+             <input class="password" [(ngModel)]="senha" name="senha" type="password" id="login_password" placeholder="Senha">
+         
+          
           <div class="checkbox">
               <input type="checkbox" id="rememberme">
               <label for="rememberme">
                   Lembrar minha senha
               </label>
           </div>
-          <button type="submit" class="btn btn-primary">Entrar</button>
-          <a href="javascript://" class="signup">Não possui uma conta?</a>
+          <div *ngIf="loginService.error" class="error active">
+            {{ loginService.error }}
+         </div>
+          <button type="submit" (click)="validaUsuario()" class="btn btn-primary">Entrar</button>
+          <a href="/cadastro"  class="signup">Não possui uma conta?</a>
       </div>
   </form>
 </div>
+
+<<router-outlet></router-outlet>

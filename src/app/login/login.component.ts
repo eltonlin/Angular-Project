@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from '../login.service';
 
 
 @Component({
@@ -9,14 +10,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  login : string ;
-  senha : string ;
-  mensagem : string;
+  login : string;
+  senha : string;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
 
-  
-}
+  validaUsuario(){
+      this.loginService.validaUsuario(this.login, this.senha);
+    }
+  }
+
+
+
