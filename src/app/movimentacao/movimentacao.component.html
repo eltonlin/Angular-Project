@@ -20,10 +20,14 @@
                     <clr-dg-cell>{{movimentacoes.dataDeVencimento}}</clr-dg-cell>
                     <clr-dg-cell>{{movimentacoes.categoria}}</clr-dg-cell>
                     <clr-dg-cell>{{movimentacoes.valor}}</clr-dg-cell>
-                </clr-dg-row>
-                <clr-dg-footer>{{movimentacoes.length}} Movimentações</clr-dg-footer>
-              </clr-datagrid>
-              
+                </clr-dg-row>   
+                <clr-dg-footer>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="5">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        of {{pagination.totalItems}} movimentacoes
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+              </clr-datagrid>         
         </clr-tab-content>
     </clr-tab>
     <clr-tab>
@@ -33,9 +37,9 @@
         </clr-tab-content>
     </clr-tab>
 </clr-tabs>
-<button (click)="cadastrar" class="btn btn-primary">Cadastrar</button>
 
-<div *ngIf="cadastrarBool" class="modal">
+
+<!-- <div *ngIf="cadastrarBool" class="modal">
         <div class="modal-dialog" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="modal-header">
@@ -54,7 +58,7 @@
             </div>
         </div>
     </div>
-<div class="modal-backdrop" aria-hidden="false"></div>
+<div class="modal-backdrop" aria-hidden="false"></div> -->
 
 
 

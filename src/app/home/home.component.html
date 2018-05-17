@@ -9,8 +9,7 @@
             </a>
         </div>
         <div class="header-nav" [clr-nav-level]="1">
-            <a class="nav-link" href="#" [routerLink]="['/home']" routerLinkActive="active"><span class="nav-text">Movimentações</span></a>
-            <a class="nav-link" href="#" [routerLink]="['/about']" routerLinkActive="active"><span class="nav-text">Gráficos </span></a>
+            <a class="nav-link" href="#" [routerLink]="['/home']" routerLinkActive="active"><span class="nav-text">Movimentações</span></a> 
             <a class="nav-link" href="#" [routerLink]="['/relat']" routerLinkActive="active"><span class="nav-text">Relatórios </span></a>
         </div>
       <div class="header-actions">
@@ -31,8 +30,8 @@
     <div class="content-container">
       <div class="content-area">
         <app-movimentacao></app-movimentacao>
-        <app-chart></app-chart>
         <app-chart2></app-chart2>
+        <app-chart></app-chart>
       </div>
     </div>
   </clr-main-container>

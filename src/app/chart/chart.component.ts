@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ChartComponent implements OnInit {
 
   public doughnutChartLabels:string[] = ['Aluguel', 'Condomínio', 'Cartão de crédito'];
-  public doughnutChartData:number[] = [350, 450, 100];
+  public doughnutChartData:number[] = [350, 450, 100,];
   public doughnutChartType:string = 'doughnut';
 
   constructor() { }
