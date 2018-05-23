@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movimentacao } from 'app/movimentacao';
 import { MOVIMENTACOES } from 'app/mock-movimentacoes';
+import { MovimentacaoService } from '../movimentacao-service.service';
 
 @Component({
   selector: 'app-movimentacao',
@@ -13,13 +14,13 @@ export class MovimentacaoComponent implements OnInit {
 
   cadastrarBool : String ;
 
-  constructor() { }
+  constructor(private moviServices : MovimentacaoService) { }
 
   ngOnInit() {
   }
 
   cadastrar(){
-    this.cadastrarBool = 'v';
-  }
+    this.moviServices.chamaCadastro();  
+ }
 
 }

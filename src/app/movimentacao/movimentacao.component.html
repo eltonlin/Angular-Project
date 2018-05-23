@@ -20,45 +20,38 @@
                     <clr-dg-cell>{{movimentacoes.dataDeVencimento}}</clr-dg-cell>
                     <clr-dg-cell>{{movimentacoes.categoria}}</clr-dg-cell>
                     <clr-dg-cell>{{movimentacoes.valor}}</clr-dg-cell>
-                </clr-dg-row>   
-                <clr-dg-footer>
-                    <clr-dg-pagination #pagination [clrDgPageSize]="5">
-                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
-                        of {{pagination.totalItems}} movimentacoes
-                    </clr-dg-pagination>
-                </clr-dg-footer>
+                </clr-dg-row>  
+                
               </clr-datagrid>         
         </clr-tab-content>
     </clr-tab>
     <clr-tab>
         <button clrTabLink id="link2">Despesas</button>
         <clr-tab-content *clrIfActive="false">
-        ...
+                <clr-datagrid>
+                        <clr-dg-column>ID</clr-dg-column>
+                        <clr-dg-column>Name</clr-dg-column>
+                        <clr-dg-column>Data de Lançamento</clr-dg-column>
+                        <clr-dg-column>Data de Vencimento</clr-dg-column>
+                        <clr-dg-column>Categoria</clr-dg-column>
+                        <clr-dg-column>Valor</clr-dg-column>
+                        <clr-dg-row *clrDgItems="let movimentacoes of movimentacoes" [clrDgItem]="movimentacoes" >
+                            <clr-dg-action-overflow>
+                                <button class="action-item" (click)="onEdit(movimentacao)">Edit</button>
+                                <button class="action-item" (click)="onDelete(movimentacao)">Delete</button>
+                            </clr-dg-action-overflow>
+                            <clr-dg-cell>{{movimentacoes.id}}</clr-dg-cell>
+                            <clr-dg-cell>{{movimentacoes.name}}</clr-dg-cell>
+                            <clr-dg-cell>{{movimentacoes.dataDeLancamento}}</clr-dg-cell>
+                            <clr-dg-cell>{{movimentacoes.dataDeVencimento}}</clr-dg-cell>
+                            <clr-dg-cell>{{movimentacoes.categoria}}</clr-dg-cell>
+                            <clr-dg-cell>{{movimentacoes.valor}}</clr-dg-cell>
+                        </clr-dg-row>                           
+                      </clr-datagrid>         
         </clr-tab-content>
     </clr-tab>
 </clr-tabs>
 
-
-<!-- <div *ngIf="cadastrarBool" class="modal">
-        <div class="modal-dialog" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button aria-label="Close" class="close" type="button">
-                        <clr-icon aria-hidden="true" shape="close"></clr-icon>
-                    </button>
-                    <h3 class="modal-title">I have a nice title</h3>
-                </div>
-                <div class="modal-body">
-                    <p>But not much to say...</p>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-outline" type="button">Cancel</button>
-                    <button class="btn btn-primary" type="button">Ok</button>
-                </div>
-            </div>
-        </div>
-    </div>
-<div class="modal-backdrop" aria-hidden="false"></div> -->
 
 
 
