@@ -54,8 +54,9 @@ export class CadastraMovimentacaoComponent implements OnInit {
     //  this.moviServices.cadastra(this.movimentacao);
   }
 
-  voltar() {
+
+  voltar(){
     this.moviServices.voltar();
   }
-
+  
 }

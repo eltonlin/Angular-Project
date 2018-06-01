@@ -22,12 +22,12 @@ export class MovimentacaoComponent implements OnInit {
     );
 
   }
-
+  
   ngOnInit() {
   }
 
-  cadastrar() {
-    this.moviServices.chamaCadastro();
-  }
+  cadastrar(){
+    this.moviServices.chamaCadastro();  
+ }
 
 }

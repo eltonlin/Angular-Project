@@ -38,7 +38,6 @@ import { TesteComponent } from './teste/teste.component';
         DespesasComponent,
         RecebimentosComponent,
         TesteComponent,
-        
     ],
     imports: [
         BrowserAnimationsModule,
@@ -48,7 +47,6 @@ import { TesteComponent } from './teste/teste.component';
         ClarityModule,
         ChartsModule,
         ROUTING,
-        
     ],
     providers: [MovimentacaoService, CadastroMovimentacaoService],
     bootstrap: [AppComponent]

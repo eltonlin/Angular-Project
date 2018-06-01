@@ -6,25 +6,45 @@
         <input [(ngModel)]="movimentacao.name" name="name" type="text" id="aForm_1" placeholder="Descrição" size="45">
       </div>
       <div class="form-group">
+<<<<<<< HEAD
         <label for="aForm_2">Data de Lançamento</label>
         <input [(ngModel)]="movimentacao.dataLancamento" name="dataLancamento" type="date" id="aForm_2" >
+=======
+        <label for="aForm_2">Data de Vencimento</label>
+        <input [(ngModel)]="movimentacao.dataDeVencimento" name="dataDeVencimento" type="date" id="aForm_2" placeholder="Enter another value here" size="35">
+>>>>>>> 7f7c78dcc4e1b1dc160472fa25e8b8d75b82d25e
       </div>
       <div class="form-group">
         <label for="aForm_3">Tipo</label>
         <div class="select">
+<<<<<<< HEAD
           <select  name="tipo" [(ngModel)]="movimentacao.tipo" >
               <option *ngFor="let tipo of tiposLista" [ngValue]="tipo.id" >{{tipo.descricao}}</option>
+=======
+          <select  name="tipo" id="aForm_3">
+            <option>Despesa</option>
+            <option>Recebimento</option>
+>>>>>>> 7f7c78dcc4e1b1dc160472fa25e8b8d75b82d25e
           </select>
         </div>
       </div>
       <div class="form-group">
         <label for="aForm_3">Categoria</label>
         <div class="select">
+<<<<<<< HEAD
          
           <select  name="categoria" id="aForm_4" [(ngModel)]="movimentacao.categoria" >
             <option *ngFor="let categoria of categoriasLista" [ngValue]="categoria.id" >{{categoria.descricao}}</option>
           </select>
 
+=======
+          <select  name="categoria" id="aForm_4">
+            <option>Escola das crianças</option>
+            <option>Roupas</option>
+            <option>Comida</option>
+            <option>Trabalho</option>
+          </select>
+>>>>>>> 7f7c78dcc4e1b1dc160472fa25e8b8d75b82d25e
         </div>
       </div>
       <div class="form-group">
@@ -34,5 +54,9 @@
       <button (click)="cadastra()" type="submit" class="btn btn-primary">Ok</button>
       <button (click)="voltar()" type="submit" class="btn btn-primary">Voltar</button> 
     </section>
+<<<<<<< HEAD
   </form>
 
+=======
+  </form>
+>>>>>>> 7f7c78dcc4e1b1dc160472fa25e8b8d75b82d25e
