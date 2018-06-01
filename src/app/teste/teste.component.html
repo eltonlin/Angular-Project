@@ -1,0 +1,101 @@
+<!-- INTERPOLAÇÃO -->
+<!-- é a maneira que o angular trabalha com os dados injentando na tela ou no componente.-->
+
+<!-- property bind, interpolação do componente pra tela pode ser feita assim-->
+  <h1> {{title}} </h1>
+  <!-- ou assim colocando o atributo entre chaves e indicando qual será no componente-->
+  <img [src]="foto" >
+  <br>
+  <!--Event binding é  a interpoçaõa da tela para o component é normalmente utilizado para representar ações pelo usuário -->
+  <button (click)="msgAlerta()"> Exercutar ação</button>
+  <br>
+  <!-- O último é o Two-way-data-biding que é a interpolação dupla ela modifica tanto o estado da tela como o do componente -->
+  <input [(ngModel)]="nome" type="text">   
+  {{nome}}
+
+  <br><br><br>
+
+ <!-- DIRETIVAS --> 
+ <!-- As	 diretivas	 são	 uma	 forma	 de	 interação	 com	 o	 template.
+Dependendo	 de	 qual	 for	 a	 regra	 de	 negócio,	 elas	 modificam	 ou
+interagem	dinamicamente	com	as	tags	do	HTML.
+ -->
+
+ <!-- Diretivas	estruturais  -->
+ <!-- As	diretivas	estruturais	são	todas	que	modificam	a	estrutura	da
+página.	 Elas	 interagem	 com	 o	 template,	 modificando	 a	 estrutura
+mostrada	no	navegador : exemplos: *ngFor , *ngIf, *ngSwitch -->
+
+<ul>
+  <li *ngFor="let pessoa of pessoas"> {{ pessoa }}</li>
+</ul>
+<br><br>
+<!-- Diretivas de atributos-->
+<!-- são diretivas que muda os atributos de um componente html *ngClass ou *ngStyle -->
+
+<h2 [ngStyle]="{'color':vermelho}"> Diretiva Atributo </h2>
+
+<br><br>
+
+<!-- Exemplos de diretivas estruturais  -->
+<!-- O ng if pode está ligado diretamente com o true ou false, com uma variável ou com um retorno de um método como segue no exemplo abaixo.-->
+<!-- ele também funciona pra comportamentos lógicos do tipo cursos.length > 0 -->
+<!-- Nesse caso se o valor for verdadeiro a ação é exibida na tela, porém se for false, ela não é exibida mas permanece no DOM oculto-->
+<h3 *ngIf="getValor()"> testando Ng If</h3>
+<br><bR>
+<!-- também existe o atributo hidden ele é parecido com o ngIF porém funciona de maneira ao contrario se o atributo referenciado for true 
+ele oculta o elemento da tela, além disso ele exclui do dom então cabe a você pensar em segurança-->
+<h3 [hidden]="getValor()"> Olá</h3>
+
+<!-- Eo NGSWITCH-->
+
+<div	[ngSwitch]="numero">
+    <p	*ngSwitchCase="1">a	variável	está	com	o	valor	de	{{numero}}	
+</p>
+    <p	*ngSwitchCase="2">a	variável	está	com	o	valor	de	{{numero}}	
+</p>
+    <p	*ngSwitchCase="3">a	variável	está	com	o	valor	de	{{numero}}	
+</p>
+    <p	*ngSwitchCase="4">a	variável	está	com	o	valor	de	{{numero}}	
+</p>
+    <p	*ngSwitchCase="5">a	variável	está	com	o	valor	de	{{numero}}	
+</p>
+    <p	*ngSwitchDefault>Mensagem	padrão</p>
+</div>
+
+<button (click)="incrementarNumero()">Incrementar numero </button>
+
+<br><Br>
+
+  <!--Capturando eventos a digitar --> 
+  <input type="text" (keyup)="digitou($event)">
+
+  <bR><br>
+
+    <!-- Criando uma variável qtdSenha e validando ela no input para ser salva pelo próximo botão além de passar um valor pra ele que é 
+      a própria variável-->
+    Senha:
+    <input type="text" #qtdSenha (keyup)="validarSenha(qtdSenha.value)">
+
+    <br><br>
+
+    <button [disabled]="!habilitadorBotao" (click)="gravarSenha(qtdSenha.value)">Salvar Senha</button>
+
+    <bR><bR><br>
+
+      <!--Aqui adicionarmos um elemnto a lista usando a tecla entre e depois limpamos ele na mesma chamada do método -->
+      <h3>Testando inserção com enter</h3>
+      <input type="text" #conteudo (keyup.enter)="adicionar(conteudo.value); conteudo.value = '' ">
+
+      <ul>
+        <li *ngFor="let lista of listas">
+            {{ lista }}
+        </li>
+      </ul>
+
+      <br><br>
+      <!--Evento o blur é para quando o input perder o foco ele realizará alguma determinada ação no nosso caso ele calcula
+         a idade baseada nos anos passado -->
+      <h4>Blur</h4>
+      <input type="text" #data (blur)="verIdade(data.value)">
+      <p>Você nasceu em : {{ idade }} </p>
