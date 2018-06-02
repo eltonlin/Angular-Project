@@ -17,17 +17,18 @@ export class MovimentacaoComponent implements OnInit {
 
   constructor(private moviServices: MovimentacaoService, cadastroService: CadastroMovimentacaoService) {
 
-    cadastroService.listaMovimentacoes().subscribe(movimentacoesResultado => this.movimentacoes = movimentacoesResultado,
-      erro => console.log(erro)
-    );
+    cadastroService.listaMovimentacoes()
+      .subscribe(movimentacoesResultado => this.movimentacoes = movimentacoesResultado,
+        erro => console.log(erro)
+      );
 
   }
-  
+
   ngOnInit() {
   }
 
-  cadastrar(){
-    this.moviServices.chamaCadastro();  
- }
+  cadastrar() {
+    this.moviServices.chamaCadastro();
+  }
 
 }
