@@ -9,31 +9,30 @@ import { AppComponent } from './app.component';
 
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
-import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
+
 
 import { ChartComponent } from './chart/chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { Chart2Component } from './chart2/chart2.component';
 
 import { ROUTING } from "./app.routing";
-import { GraficoComponent } from './grafico/grafico.component';
 import { CadastraMovimentacaoComponent } from './cadastra-movimentacao/cadastra-movimentacao.component';
 import { MovimentacaoService } from "./movimentacao-service.service";
 import { DespesasComponent } from './despesas/despesas.component';
 import { RecebimentosComponent } from './recebimentos/recebimentos.component';
 import { CadastroMovimentacaoService } from "./cadastra-movimentacao/cadastro-movimentacao-service";
 import { TesteComponent } from './teste/teste.component';
+import { ChartService } from "./chart/chart.service";
+import { Chart2Service } from "./chart2/chart2.service";
 
 
 @NgModule({
     declarations: [
         AppComponent,
         AboutComponent,
-        HomeComponent,
-        MovimentacaoComponent,        
+        HomeComponent,               
         ChartComponent,
-        Chart2Component,
-        GraficoComponent,
+        Chart2Component,        
         CadastraMovimentacaoComponent,
         DespesasComponent,
         RecebimentosComponent,
@@ -48,7 +47,7 @@ import { TesteComponent } from './teste/teste.component';
         ChartsModule,
         ROUTING,
     ],
-    providers: [MovimentacaoService, CadastroMovimentacaoService],
+    providers: [MovimentacaoService, CadastroMovimentacaoService, ChartService, Chart2Service],
     bootstrap: [AppComponent]
 })
 export class AppModule {

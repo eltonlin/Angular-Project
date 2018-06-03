@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Chart2Service } from './chart2.service';
 
 @Component({
   selector: 'app-chart2',
@@ -8,7 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class Chart2Component implements OnInit {
 
 
-  constructor() { }
+  constructor(chartService : Chart2Service) { 
+    chartService.meses()
+      .subscribe(meses => 
+        {
+          let arrayResultado = [];
+          meses.forEach((object) =>{
+            arrayResultado.push(object.mes)
+          })   
+          this.barChartLabels = [];
+          this.barChartLabels = arrayResultado;       
+        }, 
+        erro => console.log(erro)
+      );
+
+  }
 
   ngOnInit() {
   }
@@ -17,7 +32,7 @@ export class Chart2Component implements OnInit {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels:string[] = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'];
+  public barChartLabels:string[] = [];
   public barChartType:string = 'bar';
   public barChartLegend:boolean = true;
  

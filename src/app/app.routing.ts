@@ -8,8 +8,6 @@ import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
 import { Routes, RouterModule } from '@angular/router';
 
 ;
-import { MovimentacaoComponent } from 'app/movimentacao/movimentacao.component';
-import { GraficoComponent } from './grafico/grafico.component';
 import { CadastraMovimentacaoComponent } from './cadastra-movimentacao/cadastra-movimentacao.component';
 import { Chart2Component } from './chart2/chart2.component';
 import { ChartComponent } from './chart/chart.component';
@@ -20,8 +18,7 @@ import { TesteComponent } from './teste/teste.component';
 
 export const ROUTES: Routes = [
         
-    {path: 'movimentacao', component : MovimentacaoComponent},
-    {path: 'grafico', component : GraficoComponent},
+    
     {path : 'cadastraMovimentacoes', component : CadastraMovimentacaoComponent},
     {path : 'recebebimentosDespesasGrafico', component : Chart2Component}, 
     {path : 'categoriasGrafico', component : ChartComponent},

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartService } from './chart.service';
 
 @Component({
   selector: 'app-chart',
@@ -7,13 +8,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChartComponent implements OnInit {
 
-  public doughnutChartLabels:string[] = ['Aluguel', 'Condomínio', 'Cartão de crédito'];
-  public doughnutChartData:number[] = [350, 450, 100,];
+  public doughnutChartLabels: any[] = [];
+  public doughnutChartData: any [] = [];
   public doughnutChartType:string = 'doughnut';
 
-  constructor() { }
+  constructor(public chartService : ChartService) { 
+      chartService.countCategorias()
+        .subscribe(countResultados => 
+            {
+              let arrayResultados = [];
+              countResultados.forEach((object) => {
+                arrayResultados.push(parseInt(object.qtd));
+              })
+              this.doughnutChartData = [];
+              this.doughnutChartData = arrayResultados;
+         
+          console.log(this.doughnutChartData);
+        },
+          erro => console.log(erro)        
+        );
 
-  ngOnInit() {
+      
+      chartService.categoriasVinculadas()
+        .subscribe(categoriasVinculadas => 
+          {
+            let arrayResultados = [];
+            categoriasVinculadas.forEach((object) => {
+              arrayResultados.push(object.descricao);
+            })
+            this.doughnutChartLabels = [];
+            this.doughnutChartLabels = arrayResultados;
+          },
+          erro => console.log(erro)
+        );  
+
+      // console.log(this.doughnutChartLabels);
+      // console.log(this.doughnutChartData);
+     
+  }
+
+
+  ngOnInit() { 
+   
   }
 
     // events
@@ -24,5 +60,8 @@ export class ChartComponent implements OnInit {
     public chartHovered(e:any):void {
       console.log(e);
     }
+
+    
+
 
 }
