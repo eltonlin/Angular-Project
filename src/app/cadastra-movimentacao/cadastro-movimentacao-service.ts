@@ -35,4 +35,15 @@ export class CadastroMovimentacaoService {
     return this.http.get('http://localhost:3000/movimentacao').map(res => res.json());
   }
 
+  listaRecebimentos(): Observable<any[]> {
+    return this.http.get('http://localhost:3000/recebimentos').map(res => res.json());
+  }
+
+  listaDespesas(): Observable<any[]> {
+    return this.http.get('http://localhost:3000/despesas').map(res => res.json());
+  }
+
+
+  
+
 }

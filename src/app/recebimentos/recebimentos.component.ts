@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MOVIMENTACOES } from './../mock-movimentacoes';
 import { Movimentacao } from 'app/movimentacao';
+import { CadastroMovimentacaoService } from './../cadastra-movimentacao/cadastro-movimentacao-service';
 
 @Component({
   selector: 'app-recebimentos',
@@ -11,7 +12,14 @@ export class RecebimentosComponent implements OnInit {
   
   movimentacoes:Movimentacao[] = MOVIMENTACOES;
 
-  constructor() { }
+  constructor(cadastroService: CadastroMovimentacaoService) {
+
+    cadastroService.listaRecebimentos()
+      .subscribe(movimentacoesResultado => this.movimentacoes = movimentacoesResultado,
+        erro => console.log(erro)
+      );
+   }
+
 
   ngOnInit() {
   }

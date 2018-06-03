@@ -10,21 +10,22 @@
     <clr-dg-row *clrDgItems="let movimentacoes of movimentacoes" [clrDgItem]="movimentacoes">
         <clr-dg-cell>{{movimentacoes.id}}</clr-dg-cell>
         <clr-dg-cell>{{movimentacoes.descricao}}</clr-dg-cell>
-        <clr-dg-cell>{{movimentacoes.data_lancamento}}</clr-dg-cell>
+        <clr-dg-cell>{{movimentacoes.data_vencimento}}</clr-dg-cell>
         <clr-dg-cell>
             <div [ngSwitch]="movimentacoes.Tipo_id">
-                <span *ngSwitchCase="1">Transporte</span>
-                <span *ngSwitchCase="2">Contas</span>
-                <span *ngSwitchCase="3">Lazer</span>
-                <span *ngSwitchCase="4">Educação</span>
-                <span *ngSwitchCase="5">Financiamento</span>
-                <span *ngSwitchCase="6">Outros Gastos</span>
+                    <span *ngSwitchCase="1">Despesa</span>
+                    <span *ngSwitchCase="2">Recebimento</span>
             </div>
         </clr-dg-cell>
         <clr-dg-cell>
             <div [ngSwitch]="movimentacoes.Categoria_id">
-                <span *ngSwitchCase="1">Despesa</span>
-                <span *ngSwitchCase="2">Recebimento</span>
+                    <span *ngSwitchCase="1">Transporte</span>
+                    <span *ngSwitchCase="2">Contas</span>
+                    <span *ngSwitchCase="3">Lazer</span>
+                    <span *ngSwitchCase="4">Educação</span>
+                    <span *ngSwitchCase="5">Financiamento</span>
+                    <span *ngSwitchCase="6">Outros Gastos</span>
+                
             </div>
         </clr-dg-cell>
         <clr-dg-cell>{{movimentacoes.valor}}</clr-dg-cell>

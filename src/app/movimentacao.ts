@@ -3,6 +3,7 @@ export class Movimentacao{
     name: string;
     tipo: any;
     dataLancamento: any;
+    dataVencimento : any;
     categoria: any;
     valor: number; 
 }

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movimentacao } from './movimentacao';
+import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class MovimentacaoService {
@@ -18,5 +20,9 @@ export class MovimentacaoService {
   voltar(){
     this.routes.navigate(['/movimentacao']);
   }
+
+  // listaRecebimentos(): Observable<any[]> {
+  //   return this.Http.get('http://localhost:3000/recebimentos').map(res => res.json());
+  // }
 
 }
