@@ -1,5 +1,10 @@
 <form>
   <section class="form-block">
+
+    <div *ngIf="mensagem" class="alert alert-success" style="padding: 1%; margin-bottom:2%;">
+          <h4> {{ mensagemSucesso }} </h4>
+    </div>
+
     <label>Cadastre sua movimentação</label>
     <div class="form-group">
       <label for="aForm_1">Descrição</label>

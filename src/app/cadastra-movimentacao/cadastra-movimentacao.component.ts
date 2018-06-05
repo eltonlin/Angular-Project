@@ -13,9 +13,11 @@ import { CadastroMovimentacaoService } from './cadastro-movimentacao-service';
 })
 export class CadastraMovimentacaoComponent implements OnInit {
 
+  mensagem = false;
+  mensagemSucesso: String = "A movimentação foi cadastrada com Sucesso";
   categoriasLista: any[];
   tiposLista: any[];
-  movimentacao: Movimentacao = new Movimentacao();
+  movimentacao: Movimentacao = new Movimentacao("", "","", "", "");
   cadastroService: CadastroMovimentacaoService;
   categoriaSelecionada: any;
 
@@ -44,14 +46,18 @@ export class CadastraMovimentacaoComponent implements OnInit {
 
       event.preventDefault();
       this.cadastroService.cadastroMovimentacao(this.movimentacao)
-          .subscribe(() => {
-              console.log("Movimentação incluida com sucesso");
-              this.movimentacao = new Movimentacao();
-          }
-          , erro => console.log(erro))
+          .subscribe((res) => {
+              let teste = JSON.stringify(res);
+              this.movimentacao = new Movimentacao("", "","", "", "");
+
+              this.mensagem = true;
+
+              setInterval(() => {
+                this.mensagem = false;
+              }, 3000);
 
 
-    //  this.moviServices.cadastra(this.movimentacao);
+          }, erro => console.log(erro))
   }
 
 

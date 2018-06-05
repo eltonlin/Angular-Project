@@ -28,7 +28,7 @@ export class CadastroMovimentacaoService {
 
   cadastroMovimentacao(movimentacao: Movimentacao ): Observable<Response>{
     return this.http.post('http://localhost:3000/movimentacao', JSON.stringify(movimentacao), 
-                { headers: this.headers }); 
+                { headers: this.headers }).map(res => res.json()); 
   } 
 
   listaMovimentacoes(): Observable<any[]> {
@@ -41,6 +41,10 @@ export class CadastroMovimentacaoService {
 
   listaDespesas(): Observable<any[]> {
     return this.http.get('http://localhost:3000/despesas').map(res => res.json());
+  }
+
+  apagarMovimentacao(movimentacao): Observable<Response>{
+    return this.http.delete('http://localhost:3000/movimentacao/'+movimentacao.id).map(res => res.json());
   }
 
 

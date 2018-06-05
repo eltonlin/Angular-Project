@@ -1,6 +1,10 @@
-<p>Recebimentos</p>
+<h2>Recebimentos</h2>
+
+<div *ngIf="mensagem" class="alert alert-success" style="padding: 1%; margin-bottom:2%;">
+        <h4> {{ mensagemSucesso }} </h4>
+  </div>
+
 <clr-datagrid>
-    <clr-dg-column>ID</clr-dg-column>
     <clr-dg-column>Descrição</clr-dg-column>
     <clr-dg-column>Data de Lançamento</clr-dg-column>
     <clr-dg-column>Data de Vencimento</clr-dg-column>
@@ -8,7 +12,6 @@
     <clr-dg-column>Valor</clr-dg-column>
     <clr-dg-column>Ações</clr-dg-column>
     <clr-dg-row *clrDgItems="let movimentacoes of movimentacoes" [clrDgItem]="movimentacoes">
-        <clr-dg-cell>{{movimentacoes.id}}</clr-dg-cell>
         <clr-dg-cell>{{movimentacoes.descricao}}</clr-dg-cell>
         <clr-dg-cell>{{movimentacoes.data_lancamento}}</clr-dg-cell>
         <clr-dg-cell>{{movimentacoes.data_vencimento}}</clr-dg-cell>
@@ -25,11 +28,7 @@
             </clr-dg-cell>
         <clr-dg-cell>{{movimentacoes.valor}}</clr-dg-cell>
         <clr-dg-cell>
-            <button class="btn btn-primary">
-                Alterar
-            </button>
-
-            <button class="btn btn-danger">
+            <button class="btn btn-danger" (click)="apagar(movimentacoes)">
                 Remover
             </button>
         </clr-dg-cell>

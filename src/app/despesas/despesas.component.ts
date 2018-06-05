@@ -10,18 +10,38 @@ import { CadastroMovimentacaoService } from '../cadastra-movimentacao/cadastro-m
 })
 export class DespesasComponent implements OnInit {
 
-  movimentacoes:Movimentacao[] ; 
+  mensagem = false;
+  mensagemSucesso = "Despesa removida com sucesso";
+  movimentacoes: Movimentacao[];
+  cadastroService;
 
   constructor(cadastroService: CadastroMovimentacaoService) {
+
+    this.cadastroService = cadastroService;
 
     cadastroService.listaDespesas()
       .subscribe(movimentacoesResultado => this.movimentacoes = movimentacoesResultado,
         erro => console.log(erro)
       );
-   }
+  }
 
+  apagar(movimentacao) {
+    this.cadastroService.apagarMovimentacao(movimentacao)
+      .subscribe((res) => {
 
-  
+        let novaMovimentacao = this.movimentacoes.slice(0)
+        let indiceMovimentacaoApagada = this.movimentacoes.indexOf(movimentacao);
+        novaMovimentacao.splice(indiceMovimentacaoApagada, 1);
+        this.movimentacoes = novaMovimentacao;
+        this.mensagem = true;
+
+        setTimeout(() => {
+          this.mensagem = false;
+        }, 3000);
+      }
+        , erro => console.log(erro));
+  }
+
   ngOnInit() {
   }
 

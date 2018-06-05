@@ -18,7 +18,7 @@ export class MovimentacaoService {
   }
   
   voltar(){
-    this.routes.navigate(['/movimentacao']);
+    this.routes.navigate(['/categoriasGrafico']);
   }
 
   // listaRecebimentos(): Observable<any[]> {
