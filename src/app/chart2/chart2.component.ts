@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart2Service } from './chart2.service';
+import { ChartService } from './../chart/chart.service';
 
 @Component({
   selector: 'app-chart2',
@@ -9,7 +10,7 @@ import { Chart2Service } from './chart2.service';
 export class Chart2Component implements OnInit {
 
 
-  constructor(chartService : Chart2Service) { 
+  constructor(public chartService : Chart2Service) { 
     chartService.meses()
       .subscribe(meses => 
         {
@@ -23,9 +24,37 @@ export class Chart2Component implements OnInit {
         erro => console.log(erro)
       );
 
+     chartService.qtdDespesas()
+       .subscribe(qtdDespesas =>{
+         let arrayResultado = [];
+         qtdDespesas.forEach((object) =>{
+           arrayResultado.push(object.qtd)
+         })
+         this.barChartData[0].data = [];
+         this.barChartData[0].data = arrayResultado;
+       },
+       erro => console.log(erro)
+     );
+
+     chartService.qtdRecebimentos()
+       .subscribe(qtdRecebimentos =>{
+         let arrayResultado = [];
+         qtdRecebimentos.forEach((object) =>{
+          arrayResultado.push(object.qtd)
+          
+         })         
+         this.barChartData[1].data = [];
+         this.barChartData[1].data = arrayResultado;
+         
+       },
+       erro => console.log(erro)
+     );
+
   }
 
   ngOnInit() {
+
+   
   }
 
   public barChartOptions:any = {
