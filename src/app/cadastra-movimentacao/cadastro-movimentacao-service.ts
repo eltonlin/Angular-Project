@@ -47,6 +47,9 @@ export class CadastroMovimentacaoService {
     return this.http.delete('http://localhost:3000/movimentacao/'+movimentacao.id).map(res => res.json());
   }
 
+  somar(x, y){
+    return x + y;
+  }
 
   
 

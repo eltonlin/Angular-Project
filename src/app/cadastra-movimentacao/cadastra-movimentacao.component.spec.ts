@@ -1,25 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadastraMovimentacaoComponent } from './cadastra-movimentacao.component';
+import { CadastroMovimentacaoService } from './cadastro-movimentacao-service';
 
 describe('CadastraMovimentacaoComponent', () => {
-  let component: CadastraMovimentacaoComponent;
-  let fixture: ComponentFixture<CadastraMovimentacaoComponent>;
+  
+   it('Testando Serviços', () => {
+    
+    let servico = new CadastroMovimentacaoService(null);
+      let result =  servico.somar(1, 2);
+      expect(result).toBe(3);
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CadastraMovimentacaoComponent ]
-    })
-    .compileComponents();
-  }));
+   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CadastraMovimentacaoComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
