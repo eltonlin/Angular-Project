@@ -4,9 +4,9 @@ export class Movimentacao{
     
     id: number;
     name: string;
-    tipo: any;
-    dataLancamento: any;
-    dataVencimento : any;
+    tipo: string;
+    dataLancamento: string;
+    dataVencimento : string;
     categoria: any;
     valor: number; 
 }

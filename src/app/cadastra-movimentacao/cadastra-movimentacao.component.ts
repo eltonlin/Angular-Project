@@ -13,6 +13,7 @@ import { CadastroMovimentacaoService } from './cadastro-movimentacao-service';
 })
 export class CadastraMovimentacaoComponent implements OnInit {
 
+  tamanho;
   mensagem = false;
   mensagemSucesso: String = "A movimentação foi cadastrada com Sucesso";
   categoriasLista: any[];
